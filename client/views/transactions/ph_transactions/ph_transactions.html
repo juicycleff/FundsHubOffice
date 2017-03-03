@@ -1,0 +1,149 @@
+<template name="TransactionsPhTransactions">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> TransactionsPhTransactionsPhTransForm}}
+	</div>
+</template>
+
+<template name="TransactionsPhTransactionsPhTransForm">
+	<div id="transactions-ph-transactions-ph-trans-form" class="">
+		<h2 id="component-title">
+			PH Donations
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="form-group">
+					<label class="sr-only" for="search">
+						Search
+					</label>
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<button type="button" id="dataview-search-button" class="btn btn-primary">
+						<span class="fa fa-search">
+						</span>
+					</button>
+				</div>
+			</div>
+			<div id="dataview-controls-export" class="form-group">
+				{{#if isNotEmpty}}
+		{{#if isFound}}
+				<div>
+				</div>
+				{{else}}
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" id="dataview-export-default">
+						Export
+					</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						<span class="caret">
+						</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a href="#" id="dataview-export-csv">
+								Export to CSV
+							</a>
+						</li>
+						<li>
+							<a href="#" id="dataview-export-tsv">
+								Export to TSV
+							</a>
+						</li>
+						<li>
+							<a href="#" id="dataview-export-json">
+								Export to JSON
+							</a>
+						</li>
+					</ul>
+				</div>
+				{{/if}}
+	{{/if}}
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			No match found for your search
+		</div>
+		{{else}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> TransactionsPhTransactionsPhTransFormTable}} {{/if}}
+		</div>
+		{{/if}}
+		{{else}}
+		<div class="alert alert-info">
+			No ph donation data for you  here
+		</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="TransactionsPhTransactionsPhTransFormTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="gh">
+					GH
+				</th>
+				<th class="th-sortable" data-sort="ph">
+					PH
+				</th>
+				<th class="th-sortable" data-sort="status">
+					Status
+				</th>
+				<th class="th-sortable" data-sort="amount">
+					Amount
+				</th>
+				<th class="th-sortable" data-sort="timer">
+					Expire Date
+				</th>
+				<th class="th-sortable" data-sort="canceled">
+					Canceled
+				</th>
+				<th class="th-sortable" data-sort="completed">
+					Completed
+				</th>
+				<th class="th-sortable" data-sort="proof">
+					Proof
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each tableItems}} {{> TransactionsPhTransactionsPhTransFormTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="TransactionsPhTransactionsPhTransFormTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{gh}}
+		</td>
+		<td>
+			{{ph}}
+		</td>
+		<td>
+			{{status}}
+		</td>
+		<td>
+			{{amount}}
+		</td>
+		<td>
+			{{formatDate timer ''}}
+		</td>
+		<td>
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="canceled" {{checked canceled}}>
+		</td>
+		<td>
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="completed" {{checked completed}}>
+		</td>
+		<td>
+			{{proof}}
+		</td>
+	</tr>
+</template>
+
