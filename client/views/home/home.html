@@ -1,130 +1,128 @@
 <template name="Home">
 	<div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Funds Hub Office</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Welcome to FundsHubOffice</h5>
-        </div>
-        <div class="row center">
-          <a href="{{pathFor 'login'}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-        </div>
-        <br><br>
+		<div class="section no-pad-bot">
+			<div class="container">
+				<br><br>
+				<h1 class="header center teal-text text-lighten-2">FundsHubOffice</h1>
+				<div class="row center">
+					<h5 class="header col s12 light">Welcome to FundsHubOffice</h5>
+				</div>
+				<div class="row center">
+					{{>SmallLogin}}
+				</div>
+				<!--<div class="row center">
+          <p class="header col s12 light">OR</p>
+				</div>
+				<div class="row center">
+				<a href="{{pathFor 'register'}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+				</div>
+				-->
+				<br><br>
 
-      </div>
-    </div>
-    <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
-  </div>
+			</div>
+		</div>
 
-<div class="container">
-    <div class="section">
+		<div class="parallax"><img src="../images/background1.jpg" alt="Unsplashed background img 1"></div>
+	</div>
 
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
+	<div class="container">
+		<div class="section">
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
+			<!--   Icon Section   -->
+			<div class="row">
+				<div class="col s12 center">
+					<h3><i class="mdi-content-send brown-text"></i></h3>
+					<h4>Testimonies</h4>
+					{{>AllTestament}}
+				</div>
+			</div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>About</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
-  </div>
-
-</template>
-
-<template name="HomeHomeJumbotron">
-	<div class="jumbotron ">
-		<div id="content" class="container">
-			<h1 id="component-title">
-				fundshub
-			</h1>
-			<p id="jumbotron-text">
-			</p>
-			<p id="jumbotron-button">
-				<a href="#" class="btn btn btn-primary btn-lg" role="button">
-					Continue &raquo;
-				</a>
-			</p>
 		</div>
 	</div>
+
+
+	<div class="container">
+		<div class="section">
+
+			<div class="row">
+				<div class="col s12 center">
+					<h3><i class="mdi-content-send brown-text"></i></h3>
+					<h4>About</h4>
+					<p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque
+						tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien
+						id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend
+						sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum
+						ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus
+						orci luctus et ultrices posuere cubilia Curae;</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="parallax-container valign-wrapper">
+		<div class="section no-pad-bot">
+			<div class="container">
+				<div class="row center">
+					<h5 class="header col s12 light"></h5>
+				</div>
+			</div>
+		</div>
+		<div class="parallax"><img src="../images/background3.jpg" alt="Unsplashed background img 3"></div>
+	</div>
+
 </template>
 
 <template name="AllTestament">
-	<ul class="collection with-header">
-		<li class="collection-header">
-			<h4>
-				Testaments
-			</h4>
-		</li>
-		{{#if tetsaments}}
-			{{#each testaments}}
-				{{ItemTestament}}
-			{{/each}}
-		{{/if}}
-	</ul>
+	<div class="carousel">
+		{{#if tetsaments}} {{#each testaments}} {{ItemTestament}} {{/each}} {{/if}}
+	</div>
+</template>
+<template name="ItemTestament">
+	<div class="carousel-item col s12 m8 offset-m2 l6 offset-l3">
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<div class="row valign-wrapper">
+				<div class="col s2">
+					<img src="images/yuna.jpg" alt="" class="circle responsive-img">
+					<!-- notice the "circle" class -->
+				</div>
+				<div class="col s10">
+					<span class="black-text">
+                This is a square image. Add the "circle" class to it to make it appear circular.
+              </span>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <template name="AboutUs">
 </template>
 
+<template name="SmallLogin">
+	<!-- Inline Form -->
+	<div class="row" id="login_form" role="form">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s4  offset-s2">
+					<i class="mdi-action-account-circle prefix"></i>
+					<input id="login_email" type="email" class="validate">
+					<label for="icon_prefix">Email</label>
+				</div>
+				<div class="input-field col s4">
+					<i class="mdi-action-lock-outline prefix"></i>
+					<input id="login_password" type="password" class="validate">
+					<label for="icon_password">Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<div class="input-field col s12">
+						<button class="btn cyan waves-effect waves-light" type="submit" name="action"><i class="mdi-action-lock-open"></i> Login</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>

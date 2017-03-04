@@ -1,5 +1,6 @@
 this.TransactionsController = RouteController.extend({
 	template: "Transactions",
+	layoutTemplate: "MainLayout",
 	
 
 	yieldTemplates: {

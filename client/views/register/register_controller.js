@@ -1,5 +1,6 @@
 this.RegisterController = RouteController.extend({
 	template: "Register",
+	layoutTemplate: "BlankLayout",
 	
 
 	yieldTemplates: {

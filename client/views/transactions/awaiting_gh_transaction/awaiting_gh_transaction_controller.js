@@ -1,5 +1,6 @@
 this.TransactionsAwaitingGhTransactionController = RouteController.extend({
 	template: "TransactionsAwaitingGhTransaction",
+	layoutTemplate: "MainLayout",
 	
 
 	yieldTemplates: {

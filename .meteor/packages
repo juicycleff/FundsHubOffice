@@ -41,4 +41,14 @@ materialize:materialize@=0.97.3
 flemay:less-autoprefixer
 cfs:standard-packages
 cfs:gridfs
+zimme:iron-router-active
+usefulio:sync-methods
+chfritz:easycron
+meteortoys:allthings
 cfs:dropbox
+jparker:gravatar
+chrismbeckett:toastr
+cfs:ui
+kukasix:cfs-ui
+naxio:autoform-file
+meteorhacks:fast-render

@@ -3,7 +3,8 @@ var pageSession = new ReactiveDict();
 pageSession.set("errorMessage", "");
 
 Template.Login.rendered = function() {
-	
+	$('body').addClass('cyan');
+
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
@@ -19,7 +20,7 @@ Template.Login.events({
 		e.preventDefault();
 		pageSession.set("errorMessage", "");
 
-		var submit_button = $(t.find(":submit"));
+		var submit_button = $(t.find("#submit"));
 
 		var login_email = t.find('#login_email').value.trim();
 		var login_password = t.find('#login_password').value;
@@ -40,9 +41,10 @@ Template.Login.events({
 			return false;
 		}
 
-		submit_button.button("loading");
+		//submit_button.button("loading");
 		Meteor.loginWithPassword(login_email, login_password, function(err) {
-			submit_button.button("reset");
+			//submit_button.button("reset");
+			
 			if (err)
 			{
 				pageSession.set("errorMessage", err.message);

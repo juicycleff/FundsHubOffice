@@ -1,5 +1,6 @@
 this.MemberChangePassController = RouteController.extend({
 	template: "MemberChangePass",
+	layoutTemplate: "MainLayout",
 	
 
 	yieldTemplates: {

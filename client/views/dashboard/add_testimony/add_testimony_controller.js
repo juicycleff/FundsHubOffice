@@ -1,5 +1,6 @@
 this.DashboardAddTestimonyController = RouteController.extend({
 	template: "DashboardAddTestimony",
+	layoutTemplate: "MainLayout",
 	
 
 	yieldTemplates: {

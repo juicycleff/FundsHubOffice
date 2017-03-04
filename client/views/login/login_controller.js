@@ -1,5 +1,6 @@
 this.LoginController = RouteController.extend({
 	template: "Login",
+	layoutTemplate: "BlankLayout",
 	
 
 	yieldTemplates: {

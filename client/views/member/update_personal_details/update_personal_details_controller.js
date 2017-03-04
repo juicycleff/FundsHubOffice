@@ -1,5 +1,6 @@
 this.MemberUpdatePersonalDetailsController = RouteController.extend({
 	template: "MemberUpdatePersonalDetails",
+	layoutTemplate: "MainLayout",
 	
 
 	yieldTemplates: {

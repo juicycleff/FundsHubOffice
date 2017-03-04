@@ -1,6 +1,8 @@
 <template name="Register">
-	<div class="container">
+	<div id="login-page" class="row">
+		<div class="col s12 z-depth-4 card-panel">
 		{{#if verificationEmailSent}}
+		
 		<div class="account-form">
 			<h2>
 				Thanks for signing up!
@@ -13,29 +15,97 @@
 			</button>
 		</div>
 		{{else}}
-		<form id="register_form" class="account-form" role="form">
-			<h2>
-				Please sign up
-			</h2>
+		<form id="register_form" class="login-form" role="form">
+			<div class="row">
+			<div class="input-field col m12 center">
+				<h4>Register</h4>
+				<p class="center">Join to our FundsHubOffice now !</p>
+			</div>
+			</div>
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
 			</div>
 			{{/if}}
-			<input id="register_name" type="text" class="form-control" placeholder="Your full name" required autofocus>
-			<input id="register_email" type="text" class="form-control" placeholder="Email address" required>
-			<input id="register_password" type="password" class="form-control" placeholder="Password" required>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" data-loading-text="Please wait...">
-				Sign up
-			</button>
-			<p class="account-form-text-after">
-				Already a member?
-				<a href="{{pathFor 'login'}}">
-					Sign in here
-				</a>
-			</p>
+			<div class="row margin">
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="register_fname" type="text" data-length="60" class="validate" required>
+					<label for="register_fname">First Name</label>
+				</div>
+				<div class="input-field col s6">
+				<input id="register_lname" type="number" data-length="15" class="validate" required>
+					<label for="register_lname">Last Name</label>
+				</div>
+			</div>
+			</div>
+			<div class="row margin">
+			<div class="input-field">
+				<input id="register_email" type="email" class="validate" required>
+				<label for="register_email">Email Address</label>
+			</div>
+			</div>
+			<div class="row margin">
+			<div class="input-field">
+				<input id="register_phone" type="text" data-length="60" class="validate" required>
+				<label for="register_phone">Phone number</label>
+			</div>
+			</div>
+			<div class="row margin">
+			<div class="input-field">
+				<input id="register_address" type="text" class="validate" required autofocus>
+				<label for="register_address">Address</label>
+			</div>
+			</div>
+			<div class="row margin">
+			<div class="input-field">
+				<select id="register_bank" class="validate" required>
+					<option value="">Select Bank</option>
+					<option value="First Bank">First Bank</option>
+					{{#each bankList}}
+					<option value="{{this.name}}">{{this.name}}</option>
+					{{/each}}
+				</select>
+				<label for="register_bank">Select Bank</label>
+			</div>
+			</div>
+			<div class="row margin">
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="register_accountName" type="text" data-length="60" class="validate" required>
+					<label for="register_accountName">Account Name</label>
+				</div>
+				<div class="input-field col s6">
+				<input id="register_accountNumber" type="number" data-length="15" class="validate" required>
+					<label for="register_accountNumber">Account Number</label>
+				</div>
+			</div>
+			</div>
+			<div class="row margin">
+			<div class="input-field">
+				<input id="register_password" type="password" class="validate" required>
+				<label for="register_password">Password</label>
+			</div>
+			<div class="input-field">
+				<input id="register_c_password" type="password" class="validate" required>
+				<label for="register_c_password">Confirm Password</label>
+			</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<button class="btn waves-effect waves-light col s12" type="submit" data-loading-text="Please wait...">
+						Register
+					</button>
+				</div>
+				<div class="input-field col s12">
+					<p class="margin center medium-small sign-up">Already have an account? <a href="{{pathFor 'login'}}">
+					Login
+				</a></p>
+				</div>
+			</div>
 		</form>
 		{{/if}}
+		</div>
 	</div>
 </template>
 

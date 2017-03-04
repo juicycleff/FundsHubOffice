@@ -1,0 +1,155 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="description" content="FundsHubOffice ">
+  <meta name="keywords" content="fundshuboffice, ponzi, matrix, make money, gh, ph, funds, fundshub">
+    <title>
+        FundsHubOffice | Dashboard
+    </title>
+
+    <!-- Favicons-->
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<template name="MainLayout">
+    {{>HeaderDash}}
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+            {{>Sider}} {{> yield}}
+        </div>
+
+    </div>
+
+    {{> FooterDash}}
+</template>
+
+<template name="HeaderDash">
+    <!-- End Page Loading -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">
+                    <h1 class="logo-wrapper">
+                        <a href="{{pathFor 'home'}}" class="brand-logo darken-1"><img src="../images/1.png" alt="FundsHubOffice logo"></a> <span class="logo-text">FundsHubOffice</span></h1>
+                    <ul class="right hide-on-med-and-down">
+                        <li class="search-out">
+                            <input type="text" class="search-out-text">
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light show-search"><i class="mdi-action-search"></i></a>
+                        </li>
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
+                        </li>
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
+                        </li>
+                        <!-- Dropdown Trigger -->
+                        <li>
+                            <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+    <!-- END HEADER -->
+</template>
+
+<template name="Sider">
+    <!-- START LEFT SIDEBAR NAV-->
+    <aside id="left-sidebar-nav">
+        <ul id="slide-out" class="side-nav fixed leftside-navigation">
+            <li class="user-details cyan darken-2">
+                <div class="row">
+                    <div class="col col s4 m4 l4">
+                        <img src="../images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                    </div>
+                    <div class="col col s8 m8 l8">
+                        <ul id="profile-dropdown" class="dropdown-content">
+                            <li><a href="{{pathFor 'member.update_personal_details'}}"><i class="mdi-action-face-unlock"></i> Update Profile details</a>
+                            </li>
+                            <li><a href="{{pathFor 'member.update_bank_details'}}"><i class="mdi-action-settings"></i> Update Bank Details</a>
+                            </li>
+                            <li><a href="{{pathFor 'member.change_pass'}}"><i class="mdi-communication-live-help"></i> Change Password</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="{{pathFor 'logout'}}"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                            </li>
+                        </ul>
+                        <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{userFullName}}<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                        <p class="user-roal">Administrator</p>
+                    </div>
+                </div>
+            </li>
+            <li class="bold"><a href="{{pathFor 'dashboard'}}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Donations</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{pathFor 'transactions.gh_transactions'}}">Received Donations</a>
+                                </li>
+                                <li><a href="{{pathFor 'transactions.ph_transactions'}}">Sent Donations</a>
+                                </li>
+                                <li><a href="{{pathFor 'transactions.awaiting_gh_transactions'}}">Awaiting Donations</a>
+                                </li>
+                                <li><a href="{{pathFor 'transactions.awaiting_gh_transactions'}}">Pending Out Approvals</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold"><a href="{{pathFor 'about'}}" class="waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> About <span class="new badge"></span></a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="li-hover">
+                <div class="divider"></div>
+            </li>
+            <li class="li-hover">
+                <p class="ultra-small margin more-text">MORE</p>
+            </li>
+            <li><a href="{{pathFor 'member.update_personal_details'}}"><i class="mdi-action-swap-vert-circle"></i> Update Profile</a>
+            </li>
+            <li><a href="{{pathFor 'member.update_bank_details'}}"><i class="mdi-communication-live-help"></i> Update Bank Details</a>
+            </li>
+            <li><a href="{{pathFor 'member.change_pass'}}"><i class="mdi-editor-format-color-fill"></i> Change Password</a>
+            </li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu"></i></a>
+    </aside>
+    <!-- END LEFT SIDEBAR NAV-->
+
+</template>
+
+<template name="FooterDash">
+    <!-- START FOOTER -->
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <span>Copyright © 2017 FundsHubOffice, All rights reserved.</span>
+                <span class="right"> Design and Developed by Maxxy</span>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+</template>

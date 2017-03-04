@@ -1,5 +1,6 @@
 this.DashboardController = RouteController.extend({
 	template: "Dashboard",
+	layoutTemplate: "MainLayout",
 	
 
 	yieldTemplates: {

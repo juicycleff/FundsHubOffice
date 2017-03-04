@@ -1,8 +1,10 @@
-var verifyEmail = true;
+var verifyEmail = false;
 
 Accounts.config({ sendVerificationEmail: verifyEmail });
 
 Meteor.startup(function() {
+	process.env.MAIL_URL = 'smtp://postmaster@www.fundshuboffice.com:647671e943115156a0fd4ee1884d00a8@smtp.mailgun.org:587';
+
 	// read environment variables from Meteor.settings
 	if(Meteor.settings && Meteor.settings.env && _.isObject(Meteor.settings.env)) {
 		for(var variableName in Meteor.settings.env) {

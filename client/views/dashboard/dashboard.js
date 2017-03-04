@@ -7,7 +7,13 @@ Template.Dashboard.rendered = function() {
 };
 
 Template.Dashboard.events({
-	
+	'click #copyButton': function(e, t){
+		var $temp = $("<input>");
+		$("refId").append($temp);
+		$temp.val($(element).text()).select();
+		document.execCommand("copy");
+		$temp.remove();
+	}
 });
 
 Template.Dashboard.helpers({

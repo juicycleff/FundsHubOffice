@@ -7,13 +7,12 @@ Router.configure({
 });
 
 var publicRoutes = [
-	"home",
 	"login",
 	"register",
+	"register.ref",
 	"verify_email",
 	"forgot_password",
 	"reset_password",
-	"about"
 ];
 
 var privateRoutes = [
@@ -46,7 +45,8 @@ var privateRoutes = [
 ];
 
 var freeRoutes = [
-	
+	"home",
+	"about"
 ];
 
 var roleMap = [
@@ -240,6 +240,7 @@ Router.map(function () {
 	this.route("/", {name: "home", controller: "HomeController"});
 	this.route("/login", {name: "login", controller: "LoginController"});
 	this.route("/register", {name: "register", controller: "RegisterController"});
+	this.route("/register/:ref", {name: "register.id", controller: "RegisterController"});
 	this.route("/verify_email/:verifyEmailToken", {name: "verify_email", controller: "VerifyEmailController"});
 	this.route("/forgot_password", {name: "forgot_password", controller: "ForgotPasswordController"});
 	this.route("/reset_password/:resetPasswordToken", {name: "reset_password", controller: "ResetPasswordController"});

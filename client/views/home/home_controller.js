@@ -1,5 +1,6 @@
 this.HomeController = RouteController.extend({
 	template: "Home",
+	layoutTemplate: "PublicLayout",
 	
 
 	yieldTemplates: {

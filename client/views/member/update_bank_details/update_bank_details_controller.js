@@ -1,5 +1,6 @@
 this.MemberUpdateBankDetailsController = RouteController.extend({
 	template: "MemberUpdateBankDetails",
+	layoutTemplate: "MainLayout",
 	
 
 	yieldTemplates: {
