@@ -1,13 +1,12 @@
 <template name="MemberUpdateBankDetails">
-	<div class="page-container container" id="content">
-		<div class="row" id="title_row">
-			<div class="col-md-12">
-				<div id="page_menu" class="pull-right">
-				</div>
-			</div>
+	<!-- START CONTENT -->
+	<section id="content">
+
+		<!--start container-->
+		<div class="container">
+			{{> MemberUpdateBankDetailsBankDetailsForm}}
 		</div>
-		{{> MemberUpdateBankDetailsBankDetailsForm}}
-	</div>
+	</section>
 </template>
 
 <template name="MemberUpdateBankDetailsBankDetailsForm">
@@ -20,9 +19,7 @@
 			<div class="alert alert-warning">
 				{{errorMessage}}
 			</div>
-			{{/if}}
-
-			{{#if infoMessage}}
+			{{/if}} {{#if infoMessage}}
 			<div class="alert alert-success">
 				{{infoMessage}}
 			</div>
@@ -70,4 +67,3 @@
 		</form>
 	</div>
 </template>
-

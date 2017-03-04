@@ -1,13 +1,13 @@
 <template name="TransactionsAwaitingPhTransactions">
-	<div class="page-container container" id="content">
-		<div class="row" id="title_row">
-			<div class="col-md-12">
-				<div id="page_menu" class="pull-right">
-				</div>
-			</div>
+	<!-- START CONTENT -->
+	<section id="content">
+
+		<!--start container-->
+		<div class="container">
+			{{> TransactionsAwaitingPhTransactionsAPhTransForm}}
 		</div>
-		{{> TransactionsAwaitingPhTransactionsAPhTransForm}}
-	</div>
+
+	</section>
 </template>
 
 <template name="TransactionsAwaitingPhTransactionsAPhTransForm">
@@ -21,7 +21,8 @@
 					<label class="sr-only" for="search">
 						Search
 					</label>
-					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}"
+					    autofocus="autofocus">
 					<button type="button" id="dataview-search-button" class="btn btn-primary">
 						<span class="fa fa-search">
 						</span>
@@ -29,8 +30,7 @@
 				</div>
 			</div>
 			<div id="dataview-controls-export" class="form-group">
-				{{#if isNotEmpty}}
-		{{#if isFound}}
+				{{#if isNotEmpty}} {{#if isFound}}
 				<div>
 				</div>
 				{{else}}
@@ -60,12 +60,10 @@
 						</li>
 					</ul>
 				</div>
-				{{/if}}
-	{{/if}}
+				{{/if}} {{/if}}
 			</div>
 		</form>
-		{{#if isNotEmpty}}
-			{{#if isNotFound}}
+		{{#if isNotEmpty}} {{#if isNotFound}}
 		<div class="alert alert-warning">
 			"{{searchString}}" not found.
 		</div>
@@ -73,10 +71,9 @@
 		<div id="dataview-data">
 			{{#if viewAsTable}} {{> TransactionsAwaitingPhTransactionsAPhTransFormTable}} {{/if}}
 		</div>
-		{{/if}}
-		{{else}}
+		{{/if}} {{else}}
 		<div class="alert alert-info">
-			No ph donation data for you  here
+			No ph donation data for you here
 		</div>
 		{{/if}}
 	</div>
@@ -146,4 +143,3 @@
 		</td>
 	</tr>
 </template>
-

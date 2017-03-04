@@ -1,13 +1,13 @@
 <template name="MemberUpdatePersonalDetails">
-	<div class="page-container container" id="content">
-		<div class="row" id="title_row">
-			<div class="col-md-12">
-				<div id="page_menu" class="pull-right">
-				</div>
-			</div>
+	<!-- START CONTENT -->
+	<section id="content">
+
+		<!--start container-->
+		<div class="container">
+			{{> MemberUpdatePersonalDetailsEditForm}}
 		</div>
-		{{> MemberUpdatePersonalDetailsEditForm}}
-	</div>
+
+	</section>
 </template>
 
 <template name="MemberUpdatePersonalDetailsEditForm">
@@ -20,9 +20,7 @@
 			<div class="alert alert-warning">
 				{{errorMessage}}
 			</div>
-			{{/if}}
-
-			{{#if infoMessage}}
+			{{/if}} {{#if infoMessage}}
 			<div class="alert alert-success">
 				{{infoMessage}}
 			</div>
@@ -32,7 +30,8 @@
 					Name
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.name" value="{{users_null.profile.name}}" class="form-control " autofocus="autofocus" required="required" data-type="string">
+					<input type="text" name="profile.name" value="{{users_null.profile.name}}" class="form-control " autofocus="autofocus" required="required"
+					    data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -114,4 +113,3 @@
 		</form>
 	</div>
 </template>
-

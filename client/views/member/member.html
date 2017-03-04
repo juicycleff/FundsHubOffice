@@ -1,13 +1,12 @@
 <template name="Member">
-	<div class="page-container container" id="content">
-		<div class="row" id="title_row">
-			<div class="col-md-12">
-				<div id="page_menu" class="pull-right">
-				</div>
-			</div>
+	<!-- START CONTENT -->
+	<section id="content">
+
+		<!--start container-->
+		<div class="container">
+			{{> MemberSideMenu}}
 		</div>
-		{{> MemberSideMenu}}
-	</div>
+	</section>
 </template>
 
 <template name="MemberSideMenu">
@@ -35,4 +34,3 @@
 		</li>
 	</ul>
 </template>
-
