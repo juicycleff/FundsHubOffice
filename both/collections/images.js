@@ -1,5 +1,5 @@
 this.Images = new FS.Collection("images", {
-	stores: [new FS.Store.GridFS("images", {}), new FS.Store.Dropbox("images", {})]
+	stores: [new FS.Store.GridFS("images", {})]
 });
 
 this.Images.userCanInsert = function(userId, doc) {
