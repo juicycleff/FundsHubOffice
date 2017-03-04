@@ -2,10 +2,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes" />	<title>
-		fundshub
+		FundsHubOffice | Home
 	</title>
 </head>
 <template name="layout">
+	
 	{{#if currentUser}}
 		{{> PrivateLayout privateData}}
 	{{else}}
@@ -14,40 +15,27 @@
 </template>
 
 <template name="PublicLayout">
-	<div id="content" class="sticky-wrapper">
-		<div id="navbar" class="navbar navbar-fixed-top navbar-default" role="navigation">
-			<div class="navbar-container container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">
-							Toggle navigation
-						</span>
-						<span class="icon-bar">
-						</span>
-						<span class="icon-bar">
-						</span>
-						<span class="icon-bar">
-						</span>
-					</button>
-					<a class="navbar-brand" href="#">
-						fundshub
-					</a>
-				</div>
-				<div id="menu" class="collapse navbar-collapse">
-					{{> PublicLayoutLeftMenu}}{{> PublicLayoutRightMenu}}
-				</div>
-			</div>
+	<nav class="white" role="navigation">
+		<div class="nav-wrapper container">
+		<a id="logo-container" href="#" class="brand-logo">Funds Hub</a>
+		<ul class="right hide-on-med-and-down">
+			<li><a href="{{pathFor 'home'}}">Home</a></li>
+		</ul>
+
+		<ul id="nav-mobile" class="side-nav">
+			<li><a href="{{pathFor 'about'}}">Testimony</a></li>
+		</ul>
+
+		<ul id="nav-mobile" class="side-nav">
+			<li><a href="{{pathFor 'about'}}">About Us</a></li>
+		</ul>
+		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
-		<div class="navbar-spacer">
-		</div>
-		{{> yield}}
-	</div>
-	<div id="footer" class="sticky-footer">
-		<div class="footer-container container">
-			<p class="text-muted">
-			</p>
-		</div>
-	</div>
+	</nav>
+
+	{{> yield}}
+
+	{{>FooterMain}}
 </template>
 
 <template name="PublicLayoutLeftMenu">
