@@ -11,6 +11,9 @@ this.DashboardController = RouteController.extend({
 		this.next();
 	},
 
+	
+  	fastRender: true,
+
 	action: function() {
 		if(this.isReady()) { this.render(); } else { this.render("loading"); }
 		/*ACTION_FUNCTION*/

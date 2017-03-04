@@ -10,6 +10,8 @@ this.HomeController = RouteController.extend({
 	onBeforeAction: function() {
 		this.next();
 	},
+	
+  	fastRender: true,
 
 	action: function() {
 		if(this.isReady()) { this.render(); } else { this.render("loading"); }
