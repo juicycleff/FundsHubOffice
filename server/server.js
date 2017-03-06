@@ -111,7 +111,6 @@ Meteor.startup(function() {
 		}
 	}
 
-	
 });
 
 Meteor.methods({
@@ -189,6 +188,7 @@ Meteor.methods({
 	}
 });
 
+
 Accounts.onCreateUser(function (options, user) {
 	user.roles = ["user"];
 
@@ -201,6 +201,8 @@ Accounts.onCreateUser(function (options, user) {
 	 }
 
 	return user;
+
+	
 });
 
 Accounts.validateLoginAttempt(function(info) {

@@ -9,6 +9,7 @@ Meteor.startup(function() {
 	
 });
 
+
 App.logout = function() {
 	Meteor.logout(function(err) {
 	});

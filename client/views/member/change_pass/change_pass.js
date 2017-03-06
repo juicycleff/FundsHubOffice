@@ -10,6 +10,8 @@ Template.MemberChangePass.rendered = function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
 	});
+
+	
 };
 
 Template.MemberChangePass.created = function() {

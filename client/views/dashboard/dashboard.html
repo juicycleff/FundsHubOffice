@@ -13,10 +13,18 @@
                             <div class="card-move-up waves-effect waves-block waves-light">
                                 <div class="move-up cyan darken-1">
                                     <div>
-                                        <span class="chart-title white-text">Revenue</span>
+                                        <span class="chart-title white-text">Welcome to FundsHubOffice</span>
+                                        
                                     </div>
                                     <div class="trending-line-chart-wrapper">
-                                        <canvas id="trending-line-chart" height="70"></canvas>
+                                        <canvas id="trending-line-chart" height="1">
+                                            
+                                        </canvas>
+                                        <p class="flow-text">This is a community of mutual financial help, participate only with spare money,
+                                                do not contribute all the money you have</p>
+                                        <canvas id="trending-line-chart" height="4">
+                                            
+                                        </canvas>
                                     </div>
                                 </div>
                             </div>
@@ -24,111 +32,21 @@
                                 <a class="btn-floating btn-move-up waves-effect waves-light darken-2 right"><i class="mdi-content-add activator"></i></a>
 
                                 <div>
-                                    <p class="flow-text">This is a community of mutual financial help, participate only with spare money, do not
-                                        contribute all the money you have</p>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <div class="input-field inline">
+                                <input type="text" id="refId">
+                                <label for="refId">Your referral link</label>
+                                <button data-clipboard-target="#refId" class="waves-effect waves-light  btn">Copy</button>
+                            </div>
 
                                 </div>
                             </div>
 
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4">Revenue by Month <i class="mdi-navigation-close right"></i></span>
-                                <table class="responsive-table">
-                                    <thead>
-                                        <tr>
-                                            <th data-field="id">ID</th>
-                                            <th data-field="month">Month</th>
-                                            <th data-field="item-sold">Item Sold</th>
-                                            <th data-field="item-price">Item Price</th>
-                                            <th data-field="total-profit">Total Profit</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>January</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>February</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>March</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>April</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>May</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>June</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>July</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>August</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Septmber</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Octomber</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td>November</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12</td>
-                                            <td>December</td>
-                                            <td>122</td>
-                                            <td>100</td>
-                                            <td>$122,00.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+
                             </div>
 
 
@@ -163,50 +81,85 @@
                                 <p><i class="mdi-device-airplanemode-on cyan-text text-darken-2"></i> {{userAccountNumber}}</p>
                             </div>
                         </div>
+
+                        <div class="card-panel">
+                            <button data-target="modal1" class="modal-trigger waves-effect waves-light  btn">Provide Help</button>
+                        </div>
+
+                        <!-- Modals-->
+
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Provide Help</h4>
+                                <p>Please choose a provide help package, you will be assigned to a participant and given just
+                                    24hrs to provide help.</p>
+                                    <br />
+                                    <br />
+                                <div>
+                                    <div class="input-field inline">
+                                        <select id="package">
+                                    <option value="">Select Pacakge</option>
+                                    <option value="">Bronze - N25,000</option>
+                                    <option value="">Silver - N50,000</option>
+                                    <option value="">Gold - N100,000</option>
+                                </select>
+                                        <label for="package">Select Package</label>
+                                    </div>
+                                    <br />
+                                    <div class="input-field ">
+                                        <p>
+                                            <input type="checkbox" id="agreeSelect" />
+                                            <label for="test5">I agree to participate in monibox being of clear and sound mind. I am sure I want to provide help and I agree to provide help to the participant that will be assigned to me.</label>
+                                            </p>
+                                    </div>
+
+                                    <br />
+                                    <p>"Do not provide help on weekends if you do not use internet banking or mobile transfer, you will be given 24hrs to make payment. if you cannot use mobile transfer or internet banking, please only provide help on week days"</p>
+
+                                    
+                                </div>
+                                <br />
+                                <br />
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" id="closeModal" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div id="chart-dashboard">
-              <div class="row">
+                <div class="row">
                     <div class="col s12 m8 l8">
                         <div class="card-panel">
-                          <label>Your referral link</label><input type="text" id="refId"> <button data-clipboard-target="#refId">Copy</button> 
+                            <div class="input-field inline">
+                                <input type="text" id="refId">
+                                <label for="refId">Your referral link</label>
+                                <button data-clipboard-target="#refId" class="waves-effect waves-light  btn">Copy</button>
+                            </div>
                         </div>
                     </div>
                     <div class="col s12 m12 l4">
                         <ul id="task-card" class="collection with-header">
                             <li class="collection-header cyan">
-                                <h4 class="task-card-title">My Task</h4>
-                                <p class="task-card-date">March 26, 2015</p>
+                                <h4 class="task-card-title">Personal Details</h4>
+                                <p class="task-card-date">Quick Links</p>
                             </li>
-                            <li class="collection-item dismissable">
-                                <input type="checkbox" id="task1" />
-                                <label for="task1">Create Mobile App UI. <a href="#" class="secondary-content"><span class="ultra-small">Today</span></a>
-                                        </label>
-                                <span class="task-cat teal">Mobile App</span>
-                            </li>
-                            <li class="collection-item dismissable">
-                                <input type="checkbox" id="task2" />
-                                <label for="task2">Check the new API standerds. <a href="#" class="secondary-content"><span class="ultra-small">Monday</span></a>
-                                        </label>
-                                <span class="task-cat purple">Web API</span>
-                            </li>
-                            <li class="collection-item dismissable">
-                                <input type="checkbox" id="task3" checked="checked" />
-                                <label for="task3">Check the new Mockup of ABC. <a href="#" class="secondary-content"><span class="ultra-small">Wednesday</span></a>
-                                        </label>
-                                <span class="task-cat pink">Mockup</span>
-                            </li>
-                            <li class="collection-item dismissable">
-                                <input type="checkbox" id="task4" checked="checked" disabled="disabled" />
-                                <label for="task4">I did it !</label>
-                                <span class="task-cat cyan">Mobile App</span>
-                            </li>
+                            <a href="{{pathFor 'member.update_personal_details'}}" class="collection-item">Update Personal details</a>
+                            <a href="{{pathFor 'member.update_bank_details'}}" class="collection-item">Update Bank Account</a>
+                            <a href="{{pathFor 'member.transactions'}}" class="collection-item">View transaction history</a>
+                            <a href="{{pathFor 'referrals'}}" class="collection-item">View Referrals</a>
                         </ul>
                     </div>
-              </div>
+
+                </div>
             </div>
+
+
+
         </div>
     </section>
 </template>

@@ -33,15 +33,10 @@
 
     </div>
 
-    {{> FooterDash}}
+    {{> FooterMain}}
 </template>
 
 <template name="HeaderDash">
-    <!-- End Page Loading -->
-
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-    <!-- START HEADER -->
     <header id="header" class="page-topbar">
         <!-- start header nav-->
         <div class="navbar-fixed">
@@ -70,7 +65,6 @@
         </div>
         <!-- end header nav-->
     </header>
-    <!-- END HEADER -->
 </template>
 
 <template name="Sider">
@@ -99,25 +93,25 @@
                     </div>
                 </div>
             </li>
-            <li class="bold"><a href="{{pathFor 'dashboard'}}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+            <li class="bold {{ isActiveRoute 'dashboard' 'active' }}"><a href="{{pathFor 'dashboard'}}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
             </li>
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
                     <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Donations</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="{{pathFor 'transactions.gh_transactions'}}">Received Donations</a>
+                                <li class="{{ isActiveRoute 'transactions.gh_transactions' 'active' }}"><a href="{{pathFor 'transactions.gh_transactions'}}">Received Donations</a>
                                 </li>
-                                <li><a href="{{pathFor 'transactions.ph_transactions'}}">Sent Donations</a>
+                                <li class="{{ isActiveRoute 'transactions.ph_transactions' 'active' }}"><a href="{{pathFor 'transactions.ph_transactions'}}">Sent Donations</a>
                                 </li>
-                                <li><a href="{{pathFor 'transactions.awaiting_gh_transactions'}}">Awaiting Donations</a>
+                                <li class="{{ isActiveRoute 'transactions.awaiting_gh_transaction' 'active' }}"><a href="{{pathFor 'transactions.awaiting_gh_transaction'}}">Awaiting Donations</a>
                                 </li>
-                                <li><a href="{{pathFor 'transactions.awaiting_gh_transactions'}}">Pending Out Approvals</a>
+                                <li class="{{ isActiveRoute 'transactions.awaiting_ph_transactions' 'active' }}"><a href="{{pathFor 'transactions.awaiting_ph_transactions'}}">Pending Out Approvals</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="bold"><a href="{{pathFor 'about'}}" class="waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> About <span class="new badge"></span></a>
+                    <li class="bold {{ isActiveRoute 'referrals' 'active' }}"><a href="{{pathFor 'referrals'}}" class="waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> Referrals <span class="new badge"></span></a>
                     </li>
 
                 </ul>
@@ -126,13 +120,13 @@
                 <div class="divider"></div>
             </li>
             <li class="li-hover">
-                <p class="ultra-small margin more-text">MORE</p>
+                <p class="ultra-small margin more-text">Preference</p>
             </li>
-            <li><a href="{{pathFor 'member.update_personal_details'}}"><i class="mdi-action-swap-vert-circle"></i> Update Profile</a>
+            <li class="{{ isActiveRoute 'member.update_personal_details' 'active' }}"><a href="{{pathFor 'member.update_personal_details'}}"><i class="mdi-action-swap-vert-circle"></i> Update Profile</a>
             </li>
-            <li><a href="{{pathFor 'member.update_bank_details'}}"><i class="mdi-communication-live-help"></i> Update Bank Details</a>
+            <li class="{{ isActiveRoute 'member.update_bank_details' 'active' }}"><a href="{{pathFor 'member.update_bank_details'}}"><i class="mdi-communication-live-help"></i> Update Bank Details</a>
             </li>
-            <li><a href="{{pathFor 'member.change_pass'}}"><i class="mdi-editor-format-color-fill"></i> Change Password</a>
+            <li class="{{ isActiveRoute 'member.change_pass' 'active' }}"><a href="{{pathFor 'member.change_pass'}}"><i class="mdi-editor-format-color-fill"></i> Change Password</a>
             </li>
         </ul>
         <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu"></i></a>

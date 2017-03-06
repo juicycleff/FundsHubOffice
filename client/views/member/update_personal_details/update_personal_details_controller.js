@@ -20,6 +20,7 @@ this.MemberUpdatePersonalDetailsController = RouteController.extend({
 		
 
 		var subs = [
+			Meteor.subscribe("current_user_data")
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -34,7 +35,7 @@ this.MemberUpdatePersonalDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			users_null: Users.findOne({_id:null}, {})
+			current_user_data: Users.findOne({_id:Meteor.userId()}, {})
 		};
 		
 

@@ -1,7 +1,6 @@
 this.MemberController = RouteController.extend({
 	template: "Member",
 	layoutTemplate: "MainLayout",
-	
 
 	yieldTemplates: {
 		/*YIELD_TEMPLATES*/

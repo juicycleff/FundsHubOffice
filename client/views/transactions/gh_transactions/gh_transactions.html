@@ -1,16 +1,23 @@
 <template name="TransactionsGhTransactions">
-	   <!-- START CONTENT -->
-    <section id="content">
+	<section id="content">
 
         <!--start container-->
         <div class="container">
+
+            <!--chart dashboard start-->
+            <div id="chart-dashboard">
+                <div class="row">
+					<div class="col s12 m12 l12">
 		{{> TransactionsGhTransactionsGhTransView}}
-	</div>
+					</div>
+                </div>
+            </div>
+		</div>
     </section>
 </template>
 
 <template name="TransactionsGhTransactionsGhTransView">
-	<div id="transactions-gh-transactions-gh-trans-view" class="">
+	<div id="transactions-gh-transactions-gh-trans-view" class="card-panel">
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-search">
 				<div id="dataview-controls-search-group" class="form-group">

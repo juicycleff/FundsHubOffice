@@ -31,30 +31,30 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<input id="register_fname" type="text" data-length="60" class="validate" required>
-					<label for="register_fname">First Name</label>
+					<label for="register_fname" data-error="wrong" data-success="right">First Name</label>
 				</div>
 				<div class="input-field col s6">
-				<input id="register_lname" type="number" data-length="15" class="validate" required>
-					<label for="register_lname">Last Name</label>
+				<input id="register_lname" type="text" data-length="15" class="validate" required>
+					<label for="register_lname" data-error="wrong" data-success="right">Last Name</label>
 				</div>
 			</div>
 			</div>
 			<div class="row margin">
 			<div class="input-field">
 				<input id="register_email" type="email" class="validate" required>
-				<label for="register_email">Email Address</label>
+				<label for="register_email" data-error="wrong" data-success="right">Email Address</label>
 			</div>
 			</div>
 			<div class="row margin">
 			<div class="input-field">
 				<input id="register_phone" type="text" data-length="60" class="validate" required>
-				<label for="register_phone">Phone number</label>
+				<label for="register_phone" data-error="wrong" data-success="right">Phone number</label>
 			</div>
 			</div>
 			<div class="row margin">
 			<div class="input-field">
 				<input id="register_address" type="text" class="validate" required autofocus>
-				<label for="register_address">Address</label>
+				<label for="register_address" data-error="wrong" data-success="right">Address</label>
 			</div>
 			</div>
 			<div class="row margin">
@@ -66,29 +66,30 @@
 					<option value="{{this.name}}">{{this.name}}</option>
 					{{/each}}
 				</select>
-				<label for="register_bank">Select Bank</label>
+				<label for="register_bank" data-error="wrong" data-success="right">Select Bank</label>
 			</div>
 			</div>
 			<div class="row margin">
 			<div class="row">
 				<div class="input-field col s6">
 					<input id="register_accountName" type="text" data-length="60" class="validate" required>
-					<label for="register_accountName">Account Name</label>
+					<label for="register_accountName" data-error="wrong" data-success="right">Account Name</label>
 				</div>
 				<div class="input-field col s6">
 				<input id="register_accountNumber" type="number" data-length="15" class="validate" required>
-					<label for="register_accountNumber">Account Number</label>
+					<label for="register_accountNumber" data-error="wrong" data-success="right">Account Number</label>
 				</div>
 			</div>
 			</div>
 			<div class="row margin">
+
 			<div class="input-field">
 				<input id="register_password" type="password" class="validate" required>
-				<label for="register_password">Password</label>
+				<label for="register_password" data-error="wrong" data-success="right">Password</label>
 			</div>
 			<div class="input-field">
 				<input id="register_c_password" type="password" class="validate" required>
-				<label for="register_c_password">Confirm Password</label>
+				<label for="register_c_password" data-error="wrong" data-success="right">Confirm Password</label>
 			</div>
 			</div>
 			<div class="row">

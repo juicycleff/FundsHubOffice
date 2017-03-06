@@ -1,17 +1,24 @@
 <template name="MemberUpdatePersonalDetails">
 	<!-- START CONTENT -->
-	<section id="content">
+    <section id="content">
 
-		<!--start container-->
-		<div class="container">
-			{{> MemberUpdatePersonalDetailsEditForm}}
+        <!--start container-->
+        <div class="container">
+
+            <!--chart dashboard start-->
+            <div id="chart-dashboard">
+                <div class="row">
+					<div class="col s12 m12 l12">
+						{{> MemberUpdatePersonalDetailsEditForm}}
+					</div>
+                </div>
+            </div>
 		</div>
-
-	</section>
+    </section>
 </template>
 
 <template name="MemberUpdatePersonalDetailsEditForm">
-	<div id="member-update-personal-details-edit-form" class="">
+	<div id="member-update-personal-details-edit-form" class="card-panel">
 		<h2 id="component-title">
 			Edit your personal details
 		</h2>
@@ -20,18 +27,31 @@
 			<div class="alert alert-warning">
 				{{errorMessage}}
 			</div>
-			{{/if}} {{#if infoMessage}}
+			{{/if}}
+
+			{{#if infoMessage}}
 			<div class="alert alert-success">
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-profile-name">
-				<label for="profile.name">
-					Name
+			<div class="form-group  field-profile-fname">
+				<label for="profile.fname">
+					Firstname
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.name" value="{{users_null.profile.name}}" class="form-control " autofocus="autofocus" required="required"
-					    data-type="string">
+					<input type="text" name="profile.fname" value="{{current_user_data.profile.fname}}" class="form-control " autofocus="autofocus" required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-profile-lname">
+				<label for="profile.lname">
+					Lastname
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.lname" value="{{current_user_data.profile.lname}}" class="form-control " required="required" data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -43,55 +63,31 @@
 					E-mail
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.email" value="{{users_null.profile.email}}" class="form-control " required="required" data-type="email">
+					<input type="text" name="profile.email" value="{{current_user_data.profile.email}}" class="form-control " required="required" data-type="email">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
 					</span>
 				</div>
 			</div>
-			<div class="form-group  field-profile-facebook">
-				<label for="profile.facebook">
-					Facebook URL
+			<div class="form-group  field-profile-phone">
+				<label for="profile.phone">
+					Phone number
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.facebook" value="{{users_null.profile.facebook}}" class="form-control " data-type="string">
+					<input type="text" name="profile.phone" value="{{current_user_data.profile.phone}}" class="form-control " required="required" data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
 					</span>
 				</div>
 			</div>
-			<div class="form-group  field-profile-google">
-				<label for="profile.google">
-					Google+ URL
+			<div class="form-group  field-profile-address">
+				<label for="profile.address">
+					Address
 				</label>
 				<div class="input-div">
-					<input type="text" name="profile.google" value="{{users_null.profile.google}}" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
-				</div>
-			</div>
-			<div class="form-group  field-profile-twitter">
-				<label for="profile.twitter">
-					Twitter ID
-				</label>
-				<div class="input-div">
-					<input type="text" name="profile.twitter" value="{{users_null.profile.twitter}}" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
-				</div>
-			</div>
-			<div class="form-group  field-profile-website">
-				<label for="profile.website">
-					Website URL
-				</label>
-				<div class="input-div">
-					<input type="text" name="profile.website" value="{{users_null.profile.website}}" class="form-control " data-type="string">
+					<input type="text" name="profile.address" value="{{current_user_data.profile.address}}" class="form-control " required="required" data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -113,3 +109,4 @@
 		</form>
 	</div>
 </template>
+

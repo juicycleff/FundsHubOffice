@@ -1,16 +1,25 @@
 <template name="MemberUpdateBankDetails">
+	
 	<!-- START CONTENT -->
-	<section id="content">
+    <section id="content">
 
-		<!--start container-->
-		<div class="container">
-			{{> MemberUpdateBankDetailsBankDetailsForm}}
+        <!--start container-->
+        <div class="container">
+
+            <!--chart dashboard start-->
+            <div id="chart-dashboard">
+                <div class="row">
+					<div class="col s12 m12 l12">
+						{{> MemberUpdateBankDetailsBankDetailsForm}}
+					</div>
+                </div>
+            </div>
 		</div>
-	</section>
+    </section>
 </template>
 
 <template name="MemberUpdateBankDetailsBankDetailsForm">
-	<div id="member-update-bank-details-bank-details-form" class="">
+	<div id="member-update-bank-details-bank-details-form" class="card-panel">
 		<h2 id="component-title">
 			Bank Update Form
 		</h2>
@@ -19,7 +28,9 @@
 			<div class="alert alert-warning">
 				{{errorMessage}}
 			</div>
-			{{/if}} {{#if infoMessage}}
+			{{/if}}
+
+			{{#if infoMessage}}
 			<div class="alert alert-success">
 				{{infoMessage}}
 			</div>
@@ -29,7 +40,7 @@
 					Bank Name
 				</label>
 				<div class="input-div">
-					<input type="text" name="bank_name" value="{{users_null.bank_name}}" class="form-control " autofocus="autofocus" data-type="string">
+					<input type="text" name="bank_name" value="{{current_user_data.bank_name}}" class="form-control " autofocus="autofocus" data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -41,7 +52,7 @@
 					Account Name
 				</label>
 				<div class="input-div">
-					<input type="text" name="account_name" value="{{users_null.account_name}}" class="form-control " data-type="string">
+					<input type="text" name="account_name" value="{{current_user_data.account_name}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -53,7 +64,7 @@
 					Account Number
 				</label>
 				<div class="input-div">
-					<input type="text" name="account_number" value="{{users_null.account_number}}" class="form-control " data-type="string">
+					<input type="text" name="account_number" value="{{current_user_data.account_number}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -67,3 +78,4 @@
 		</form>
 	</div>
 </template>
+

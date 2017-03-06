@@ -1,13 +1,13 @@
 var pageSession = new ReactiveDict();
 
-Template.Register.rendered = function() {
+Template.Register.rendered = function () {
 	pageSession.set("errorMessage", "");
 	pageSession.set("verificationEmailSent", false)
 
 	$('body').addClass('cyan');
 	$('select').material_select();
 
-	Meteor.defer(function() {
+	Meteor.defer(function () {
 		globalOnRendered();
 		$("input[autofocus]").focus();
 	});
@@ -17,12 +17,12 @@ Template.Register.rendered = function() {
 
 };
 
-Template.Register.created = function() {
+Template.Register.created = function () {
 	pageSession.set("errorMessage", "");
 };
 
 Template.Register.events({
-	'submit #register_form' : function(e, t) {
+	'submit #register_form': function (e, t) {
 		e.preventDefault();
 
 		var submit_button = $(t.find(":submit"));
@@ -41,29 +41,34 @@ Template.Register.events({
 
 		var register_name = register_fname + " " + register_lname;
 		// check name
-		if(register_fname == "")
-		{
+		if (register_fname == "") {
 			pageSession.set("errorMessage", "Please enter your first name.");
 			t.find('#register_name').focus();
 			return false;
 		}
 
-		if(register_lname == "")
-		{
+		if (register_lname == "") {
 			pageSession.set("errorMessage", "Please enter your last name.");
 			t.find('#register_name').focus();
 			return false;
 		}
 
-		if(register_phone == "")
-		{
+		if (register_phone == "") {
 			pageSession.set("errorMessage", "Please enter your phone number.");
 			t.find('#register_name').focus();
 			return false;
+		} else{
+			var hasPhone = Meteor.users.findOne({
+				"profile.phone": register_phone
+			});
+			if (hasPhone) {
+				pageSession.set("errorMessage", "Please a user with that phone number exist.");
+				t.find('#register_phone').focus();
+				return false;
+			}
 		}
 
-		if(register_address == "")
-		{
+		if (register_address == "") {
 			pageSession.set("errorMessage", "Please enter your address.");
 			t.find('#register_name').focus();
 			return false;
@@ -71,30 +76,46 @@ Template.Register.events({
 
 
 
-		if(register_accountNumber == "")
-		{
+		if (register_accountNumber == "") {
 			pageSession.set("errorMessage", "Please enter your account number.");
 			t.find('#register_accountName').focus();
 			return false;
+		}else{
+			
+			var hasAccount = Meteor.users.findOne({
+				"profile.accountNumber": register_accountNumber
+			});
+			if (hasAccount) {
+				pageSession.set("errorMessage", "Please a user with that account number exist.");
+				t.find('#register_accountNumber').focus();
+				return false
+			}
 		}
 
-		if(register_bank == "")
-		{
+		if (register_bank == "") {
 			pageSession.set("errorMessage", "Please select a your bank.");
 			t.find('#register_bank').focus();
 			return false;
 		}
 
-		if(register_accountName == "")
-		{
+		if (register_accountName == "") {
 			pageSession.set("errorMessage", "Please enter your account name.");
 			t.find('#register_accountName').focus();
 			return false;
+		}else{
+			var hasAccountName = Meteor.users.findOne({
+				"profile.accountName": register_accountName
+			});
+
+			if (hasAccountName) {
+				pageSession.set("errorMessage", "Please a user with that account name exist.");
+				t.find('#register_accountName').focus();
+				return false
+			}
 		}
 
 		// check email
-		if(!isValidEmail(register_email))
-		{
+		if (!isValidEmail(register_email)) {
 			pageSession.set("errorMessage", "Please enter valid e-mail address.");
 			t.find('#register_email').focus();
 			return false;
@@ -102,34 +123,43 @@ Template.Register.events({
 
 		// check password
 		var min_password_len = 8;
-		if(!isValidPassword(register_password, min_password_len))
-		{
-			pageSession.set("errorMessage", "Your password must be at least " + min_password_len + " characters long.");
+		if (register_password === register_c_password) {
+			if (!isValidPassword(register_password, min_password_len)) {
+				pageSession.set("errorMessage", "Your password must be at least " + min_password_len + " characters long.");
+				t.find('#register_password').focus();
+				return false;
+			}
+		} else {
+			pageSession.set("errorMessage", "Your password does not match");
 			t.find('#register_password').focus();
+			t.find('#register_c_password').focus();
 			return false;
 		}
 
+
 		//submit_button.button("loading");
-		Accounts.createUser({email: register_email, password : register_password, profile: { 
-			name: register_name,
-			fname: register_fname,
-			lname: register_lname,
-			phone: register_phone,
-			address: register_address,
-			bank: register_bank,
-			accountName: register_accountName,
-			accountNumber: register_accountNumber
-		 }}, function(err) {
+		Accounts.createUser({
+			email: register_email,
+			password: register_password,
+			profile: {
+				name: register_name,
+				fname: register_fname,
+				lname: register_lname,
+				phone: register_phone,
+				address: register_address,
+				bank: register_bank,
+				accountName: register_accountName,
+				accountNumber: register_accountNumber
+			}
+		}, function (err) {
 			//submit_button.button("reset");
-			if(err) {
-				if(err.error === 499) {
+			if (err) {
+				if (err.error === 499) {
 					pageSession.set("verificationEmailSent", true);
 				} else {
 					pageSession.set("errorMessage", err.message);
 				}
-			}
-			else
-			{
+			} else {
 				pageSession.set("errorMessage", "");
 				pageSession.set("verificationEmailSent", true);
 			}
@@ -137,21 +167,21 @@ Template.Register.events({
 		return false;
 	},
 
-	"click .go-home": function(e, t) {
+	"click .go-home": function (e, t) {
 		Router.go("/");
 	}
-	
+
 });
 
 Template.Register.helpers({
-	errorMessage: function() {
+	errorMessage: function () {
 		return pageSession.get("errorMessage");
 	},
-	verificationEmailSent: function() {
+	verificationEmailSent: function () {
 		return pageSession.get("verificationEmailSent");
 	},
-	bankList: function(){
+	bankList: function () {
 		return Bank.find({}, {}).fetch();
 	}
-	
+
 });

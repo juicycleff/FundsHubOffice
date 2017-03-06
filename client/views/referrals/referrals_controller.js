@@ -1,6 +1,7 @@
-this.MemberUpdateBankDetailsController = RouteController.extend({
-	template: "MemberUpdateBankDetails",
+this.ReferralsController = RouteController.extend({
+	template: "Referrals",
 	layoutTemplate: "MainLayout",
+	
 
 	yieldTemplates: {
 		/*YIELD_TEMPLATES*/
@@ -19,7 +20,6 @@ this.MemberUpdateBankDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("current_user_data")
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -33,8 +33,7 @@ this.MemberUpdateBankDetailsController = RouteController.extend({
 		
 
 		var data = {
-			params: this.params || {},
-			current_user_data: Users.findOne({_id:Meteor.userId()}, {})
+			params: this.params || {}
 		};
 		
 

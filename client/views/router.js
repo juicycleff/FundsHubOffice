@@ -41,7 +41,8 @@ var privateRoutes = [
 	"transactions.ph_transactions",
 	"transactions.gh_transactions",
 	"transactions.awaiting_gh_transaction",
-	"transactions.awaiting_ph_transactions"
+	"transactions.awaiting_ph_transactions",
+	"referrals"
 ];
 
 var freeRoutes = [
@@ -72,7 +73,8 @@ var roleMap = [
 	{ route: "transactions.ph_transactions",	roles: ["admin","user"] },
 	{ route: "transactions.gh_transactions",	roles: ["admin","user"] },
 	{ route: "transactions.awaiting_gh_transaction",	roles: ["admin","user"] },
-	{ route: "transactions.awaiting_ph_transactions",	roles: ["admin","user"] }
+	{ route: "transactions.awaiting_ph_transactions",	roles: ["admin","user"] },
+	{ route: "referrals",	roles: ["admin","user"] }
 ];
 
 this.firstGrantedRoute = function(preferredRoute) {
@@ -271,4 +273,5 @@ Router.map(function () {
 	this.route("/transactions/gh_transactions", {name: "transactions.gh_transactions", controller: "TransactionsGhTransactionsController"});
 	this.route("/transactions/awaiting_gh_transaction", {name: "transactions.awaiting_gh_transaction", controller: "TransactionsAwaitingGhTransactionController"});
 	this.route("/transactions/awaiting_ph_transactions", {name: "transactions.awaiting_ph_transactions", controller: "TransactionsAwaitingPhTransactionsController"});
+	this.route("/referrals", {name: "referrals", controller: "ReferralsController"});
 });

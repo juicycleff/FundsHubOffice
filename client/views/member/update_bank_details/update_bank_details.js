@@ -6,6 +6,8 @@ Template.MemberUpdateBankDetails.rendered = function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
 	});
+
+	$('select').material_select();
 };
 
 Template.MemberUpdateBankDetails.events({
@@ -91,7 +93,7 @@ Template.MemberUpdateBankDetailsBankDetailsForm.events({
 			function(values) {
 				
 
-				Meteor.call("updateUserAccount", t.data.users_null._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("updateUserAccount", t.data.current_user_data._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

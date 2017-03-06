@@ -14,17 +14,6 @@ Template.MainLayout.onRendered(function() {
     edge: 'left', // Choose the horizontal origin      
   });
   
-  //Main Left Sidebar Chat
-  $('.chat-collapse').sideNav({
-    menuWidth: 240,
-    edge: 'right',
-  });
-  $('.chat-close-collapse').click(function() {
-    $('.chat-collapse').sideNav('hide');
-  });
-  $('.chat-collapsible').collapsible({
-    accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-  });
 
   // Pikadate datepicker
   $('.datepicker').pickadate({
@@ -39,10 +28,7 @@ Template.MainLayout.onRendered(function() {
   $('.leftside-navigation').height(leftnavHeight).perfectScrollbar({
     suppressScrollX: true
   });
-    var righttnav = $("#chat-out").height();
-  $('.rightside-navigation').height(righttnav).perfectScrollbar({
-    suppressScrollX: true
-  });
+
 });
 
 Template.MainLayout.helpers({

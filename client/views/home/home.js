@@ -1,3 +1,7 @@
+var pageSession = new ReactiveDict();
+
+pageSession.set("errorMessage", "");
+
 Template.Home.rendered = function () {
 
 	Meteor.defer(function () {
@@ -23,7 +27,9 @@ Template.Home.events({
 Template.Home.helpers({
 
 });
-
+Template.SmallLogin.created = function() {
+	pageSession.set("errorMessage", "");	
+};
 Template.SmallLogin.rendered = function () {
 
 };

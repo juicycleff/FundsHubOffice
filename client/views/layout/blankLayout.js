@@ -1,5 +1,7 @@
 Template.BlankLayout.onRendered(function() {
     $('body').addClass('loaded'); 
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
 });
 
 Template.BlankLayout.onCreated(function() { 
