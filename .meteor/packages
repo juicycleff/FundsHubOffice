@@ -37,8 +37,7 @@ mizzao:bootboxjs
 momentjs:moment
 rajit:bootstrap3-datepicker
 natestrauser:animate-css
-fourseven:scss
-poetic:materialize-scss
+materialize:materialize@=0.97.3
 flemay:less-autoprefixer
 cfs:standard-packages
 cfs:gridfs
