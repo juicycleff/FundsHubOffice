@@ -35,36 +35,40 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-bank_name">
+			<div class="form-group  field-profile-bankName">
 				<label for="bank_name">
 					Bank Name
 				</label>
 				<div class="input-div">
-					<input type="text" name="bank_name" value="{{current_user_data.bank_name}}" class="form-control " autofocus="autofocus" data-type="string">
+					<select type="text" name="profile.bankName" value="{{current_user_data.profile.bankName}}" class="form-control " autofocus="autofocus" data-type="string">
+						{{#each bankList}}
+						<option value="{{this.name}}">{{this.name}}</option>
+						{{/each}}
+					</select>
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
 					</span>
 				</div>
 			</div>
-			<div class="form-group  field-account_name">
+			<div class="form-group  field-profile-accountName">
 				<label for="account_name">
 					Account Name
 				</label>
 				<div class="input-div">
-					<input type="text" name="account_name" value="{{current_user_data.account_name}}" class="form-control " data-type="string">
+					<input type="text" name="profile.accountName" value="{{current_user_data.profile.accountName}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
 					</span>
 				</div>
 			</div>
-			<div class="form-group  field-account_number">
+			<div class="form-group  field-profile-accountNumber">
 				<label for="account_number">
 					Account Number
 				</label>
 				<div class="input-div">
-					<input type="text" name="account_number" value="{{current_user_data.account_number}}" class="form-control " data-type="string">
+					<input type="text" name="profile.accountNumber" value="{{current_user_data.profile.accountNumber}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -73,6 +77,9 @@
 			</div>
 			<div class="form-group">
 				<div class="submit-div">
+					<button class="btn btn-lg btn-primary btn-block" type="submit" data-loading-text="Please wait...">
+						UPDATE
+					</button>
 				</div>
 			</div>
 		</form>

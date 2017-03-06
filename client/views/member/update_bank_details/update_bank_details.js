@@ -24,30 +24,7 @@ Template.MemberUpdateBankDetailsBankDetailsForm.rendered = function() {
 	pageSession.set("memberUpdateBankDetailsBankDetailsFormInfoMessage", "");
 	pageSession.set("memberUpdateBankDetailsBankDetailsFormErrorMessage", "");
 
-	$(".input-group.date").each(function() {
-		var format = $(this).find("input[type='text']").attr("data-format");
-
-		if(format) {
-			format = format.toLowerCase();
-		}
-		else {
-			format = "mm/dd/yyyy";
-		}
-
-		$(this).datepicker({
-			autoclose: true,
-			todayHighlight: true,
-			todayBtn: true,
-			forceParse: false,
-			keyboardNavigation: false,
-			format: format
-		});
-	});
-
-	$("input[type='file']").fileinput();
-	$("select[data-role='tagsinput']").tagsinput();
-	$(".bootstrap-tagsinput").addClass("form-control");
-	$("input[autofocus]").focus();
+	Meteor.subscribe('bank_list');
 };
 
 Template.MemberUpdateBankDetailsBankDetailsForm.events({
@@ -91,8 +68,6 @@ Template.MemberUpdateBankDetailsBankDetailsForm.events({
 
 			},
 			function(values) {
-				
-
 				Meteor.call("updateUserAccount", t.data.current_user_data._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
@@ -126,6 +101,9 @@ Template.MemberUpdateBankDetailsBankDetailsForm.helpers({
 	},
 	"errorMessage": function() {
 		return pageSession.get("memberUpdateBankDetailsBankDetailsFormErrorMessage");
+	},
+	bankList: function () {
+		return Bank.find({}, {}).fetch();
 	}
 	
 });

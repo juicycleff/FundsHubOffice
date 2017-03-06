@@ -37,7 +37,7 @@ mizzao:bootboxjs
 momentjs:moment
 rajit:bootstrap3-datepicker
 natestrauser:animate-css
-materialize:materialize@=0.97.3
+materialize:materialize@=0.97.8
 flemay:less-autoprefixer
 cfs:standard-packages
 cfs:gridfs
@@ -55,3 +55,4 @@ meteorhacks:fast-render
 msavin:mongol
 vsivsi:job-collection
 aldeed:collection2
+lylak:modal-boxes

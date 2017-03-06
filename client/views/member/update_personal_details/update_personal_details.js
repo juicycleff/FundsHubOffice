@@ -23,31 +23,6 @@ Template.MemberUpdatePersonalDetailsEditForm.rendered = function() {
 
 	pageSession.set("memberUpdatePersonalDetailsEditFormInfoMessage", "");
 	pageSession.set("memberUpdatePersonalDetailsEditFormErrorMessage", "");
-
-	$(".input-group.date").each(function() {
-		var format = $(this).find("input[type='text']").attr("data-format");
-
-		if(format) {
-			format = format.toLowerCase();
-		}
-		else {
-			format = "mm/dd/yyyy";
-		}
-
-		$(this).datepicker({
-			autoclose: true,
-			todayHighlight: true,
-			todayBtn: true,
-			forceParse: false,
-			keyboardNavigation: false,
-			format: format
-		});
-	});
-
-	$("input[type='file']").fileinput();
-	$("select[data-role='tagsinput']").tagsinput();
-	$(".bootstrap-tagsinput").addClass("form-control");
-	$("input[autofocus]").focus();
 };
 
 Template.MemberUpdatePersonalDetailsEditForm.events({

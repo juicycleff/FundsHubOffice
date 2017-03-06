@@ -43,9 +43,6 @@ Template.Dashboard.events({
 	'click #closeModal': function(e, t){
 		$('#modal1').modal('close');
 	},
-	'click #openModal': function(e, t){
-		$('#modal1').modal('open');
-	},
 	'click #provideHelp': function(e, t){
 		$('#modal1').modal('close');
 	}

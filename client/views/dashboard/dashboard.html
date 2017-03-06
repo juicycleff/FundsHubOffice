@@ -51,6 +51,37 @@
 
 
                         </div>
+                        <div class="card-panel">
+                            <h4>REQUEST TO PROVIDE HELP</h4>
+                            <div class="input-field inline">
+                                <p>AMOUNT:  Bronze - ₦ 20,000 </p>
+                            </div>
+                            <!-- Wait patiently to be automatically matched with other participants to provide help.-->
+
+                            <div class="input-field inline">
+                                <p>STATUS:  Wait patiently to be matched to another participant </p>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            
+                            <!-- Wait patiently to be automatically matched with other participants to provide help.-->
+                                <h4>REQUEST TO PROVIDE HELP</h4>
+                                <div class="input-field inline">
+                                    <p>AMOUNT:  Bronze - ₦ 20,000 </p>
+                                </div>
+                                <p>To </p>
+                                <div class="input-field inline">
+                                    <p>NAME:  Bronze - ₦ 20,000 </p>
+                                </div>
+                                <div class="input-field inline">
+                                    <p>PHONE:  Bronze - ₦ 20,000 </p>
+                                </div>
+                                <div class="input-field inline">
+                                    <p>STATUS:  Wait patiently to be matched to another participant </p>
+                                </div>
+                            <div class="col s3 m3 l2">
+                             </div>
+                        </div>
                     </div>
 
                     <div class="col s12 m6 l4">
@@ -84,6 +115,20 @@
 
                         <div class="card-panel">
                             <button data-target="modal1" class="modal-trigger waves-effect waves-light  btn">Provide Help</button>
+                        </div>
+
+
+                        <div>
+                            <ul id="task-card" class="collection with-header">
+                            <li class="collection-header cyan">
+                                <h4 class="task-card-title">Personal Details</h4>
+                                <p class="task-card-date">Quick Links</p>
+                            </li>
+                            <a href="{{pathFor 'member.update_personal_details'}}" class="collection-item">Update Personal details</a>
+                            <a href="{{pathFor 'member.update_bank_details'}}" class="collection-item">Update Bank Account</a>
+                            <a href="{{pathFor 'member.transactions'}}" class="collection-item">View transaction history</a>
+                            <a href="{{pathFor 'referrals'}}" class="collection-item">View Referrals</a>
+                        </ul>
                         </div>
 
                         <!-- Modals-->
@@ -128,33 +173,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div id="chart-dashboard">
-                <div class="row">
-                    <div class="col s12 m8 l8">
-                        <div class="card-panel">
-                            <div class="input-field inline">
-                                <input type="text" id="refId">
-                                <label for="refId">Your referral link</label>
-                                <button data-clipboard-target="#refId" class="waves-effect waves-light  btn">Copy</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m12 l4">
-                        <ul id="task-card" class="collection with-header">
-                            <li class="collection-header cyan">
-                                <h4 class="task-card-title">Personal Details</h4>
-                                <p class="task-card-date">Quick Links</p>
-                            </li>
-                            <a href="{{pathFor 'member.update_personal_details'}}" class="collection-item">Update Personal details</a>
-                            <a href="{{pathFor 'member.update_bank_details'}}" class="collection-item">Update Bank Account</a>
-                            <a href="{{pathFor 'member.transactions'}}" class="collection-item">View transaction history</a>
-                            <a href="{{pathFor 'referrals'}}" class="collection-item">View Referrals</a>
-                        </ul>
-                    </div>
-
                 </div>
             </div>
 

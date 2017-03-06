@@ -13,8 +13,6 @@ Template.Register.rendered = function () {
 	});
 
 	Meteor.subscribe('bank_list');
-
-
 };
 
 Template.Register.created = function () {
