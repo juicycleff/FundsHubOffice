@@ -1,0 +1,68 @@
+<template name="DashboardProvideHelp">
+    <!-- START CONTENT -->
+    <section id="content">
+
+        <!--start container-->
+        <div class="container">
+
+            <!--chart dashboard start-->
+            <div id="chart-dashboard">
+                <div class="row card-panel">
+                            <form id="provide_form" class="col s12 m12 l12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <h3>Provide Help</h3>
+                                    </div>
+                                    {{#if errorMessage}}
+                                    <div class="alert alert-warning">
+                                        {{errorMessage}}
+                                    </div>
+                                    {{/if}}
+                                    <div class="input-field col s6">
+                                        <select id="selectId" required >
+                                            <option value="">Select Package</option>
+                                            <option value="bronze">Bronze - 25,000</option>
+                                            <option value="silver">Silver - 50,000</option>
+                                            <option value="gold">Gold - 100,000</option>
+                                        </select>
+                                        <label for="selectId">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <p>
+                                        <input type="checkbox" id="agreeSelect" required/>
+                                            <label for="agreeSelect">I agree to participate in monibox being of clear and sound mind.<br/> 
+                                                I am sure I want to provide help and I agree to provide help to <br/> 
+                                                the participant that will be assigned to me.</label>
+                                        </p>
+                                        <br />
+                                        <p class="red">"Do not provide help on weekends if you do not use internet banking or mobile transfer,
+                                            you will be given 24hrs to make payment. if you cannot use mobile transfer or internet
+                                             banking, please only provide help on week days"</p>
+
+                                    </div>
+                                </div>
+                                
+                                <br />
+                                <br />
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        
+                                        <a href="{{pathFor 'dashboard'}}" class="btn" style="padding-right: 30px" type="submit" >BACK</a>
+                                          
+                                        <button id="submitIt" class="btn" type="submit" >OK</button>
+                                    </div>
+                                </div>
+
+                                
+                            </form>
+                        </div>
+            </div>
+
+            <div class="filler">
+            </div>
+        </div>
+    </section>
+</template>

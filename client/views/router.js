@@ -18,6 +18,7 @@ var publicRoutes = [
 var privateRoutes = [
 	"dashboard",
 	"dashboard.add_testimony",
+	"dashboard.provide_help",
 	"console",
 	"console.users",
 	"console.users.details",
@@ -250,6 +251,7 @@ Router.map(function () {
 	this.route("/dashboard", {name: "dashboard", controller: "DashboardController"});
 	this.route("/dashboard/add_testimony", {name: "dashboard.add_testimony", controller: "DashboardAddTestimonyController"});
 	this.route("/console", {name: "console", controller: "ConsoleController"});
+	this.route("/dashboard/provide_help", {name: "dashboard.provide_help", controller: "DashboardProvideHelpController"});
 	this.route("/console/users", {name: "console.users", controller: "ConsoleUsersController"});
 	this.route("/console/users/details/:userId", {name: "console.users.details", controller: "ConsoleUsersDetailsController"});
 	this.route("/console/users/insert", {name: "console.users.insert", controller: "ConsoleUsersInsertController"});

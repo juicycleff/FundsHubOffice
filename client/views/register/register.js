@@ -147,7 +147,8 @@ Template.Register.events({
 				address: register_address,
 				bank: register_bank,
 				accountName: register_accountName,
-				accountNumber: register_accountNumber
+				accountNumber: register_accountNumber,
+				refId: register_email
 			}
 		}, function (err) {
 			//submit_button.button("reset");

@@ -1,5 +1,12 @@
-var myJobs = JobCollection('myGhQueue');
-  myJobs.allow({
+
+rematchJobs.allow({
+    // Grant full permission to any authenticated user
+    admin: function (userId, method, params) {
+      return (userId ? true : false);
+    }
+});
+
+matchJobs.allow({
     // Grant full permission to any authenticated user
     admin: function (userId, method, params) {
       return (userId ? true : false);
@@ -9,10 +16,12 @@ var myJobs = JobCollection('myGhQueue');
 
 Meteor.startup(function() {
   Meteor.publish('allJobs', function () {
-      return myJobs.find({});
+      return rematchJobs.find({});
+      return matchJobs.find({});
  });
 
     // Start the myJobs queue running
-    return myJobs.startJobServer();
+    return rematchJobs.startJobServer();
+    return matchJobs.startJobServer();
 
 });

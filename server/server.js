@@ -1,13 +1,15 @@
 var verifyEmail = false;
 
-Accounts.config({ sendVerificationEmail: verifyEmail });
+Accounts.config({
+	sendVerificationEmail: verifyEmail
+});
 
-Meteor.startup(function() {
+Meteor.startup(function () {
 	process.env.MAIL_URL = 'smtp://postmaster@www.fundshuboffice.com:647671e943115156a0fd4ee1884d00a8@smtp.mailgun.org:587';
 
 	// read environment variables from Meteor.settings
-	if(Meteor.settings && Meteor.settings.env && _.isObject(Meteor.settings.env)) {
-		for(var variableName in Meteor.settings.env) {
+	if (Meteor.settings && Meteor.settings.env && _.isObject(Meteor.settings.env)) {
+		for (var variableName in Meteor.settings.env) {
 			process.env[variableName] = Meteor.settings.env[variableName];
 		}
 	}
@@ -30,9 +32,9 @@ Meteor.startup(function() {
 	//     }
 	// }
 	//
-	if(Accounts && Accounts.loginServiceConfiguration && Meteor.settings && Meteor.settings.oauth && _.isObject(Meteor.settings.oauth)) {
+	if (Accounts && Accounts.loginServiceConfiguration && Meteor.settings && Meteor.settings.oauth && _.isObject(Meteor.settings.oauth)) {
 		// google
-		if(Meteor.settings.oauth.google && _.isObject(Meteor.settings.oauth.google)) {
+		if (Meteor.settings.oauth.google && _.isObject(Meteor.settings.oauth.google)) {
 			// remove old configuration
 			Accounts.loginServiceConfiguration.remove({
 				service: "google"
@@ -45,7 +47,7 @@ Meteor.startup(function() {
 			Accounts.loginServiceConfiguration.insert(settingsObject);
 		}
 		// github
-		if(Meteor.settings.oauth.github && _.isObject(Meteor.settings.oauth.github)) {
+		if (Meteor.settings.oauth.github && _.isObject(Meteor.settings.oauth.github)) {
 			// remove old configuration
 			Accounts.loginServiceConfiguration.remove({
 				service: "github"
@@ -58,7 +60,7 @@ Meteor.startup(function() {
 			Accounts.loginServiceConfiguration.insert(settingsObject);
 		}
 		// linkedin
-		if(Meteor.settings.oauth.linkedin && _.isObject(Meteor.settings.oauth.linkedin)) {
+		if (Meteor.settings.oauth.linkedin && _.isObject(Meteor.settings.oauth.linkedin)) {
 			// remove old configuration
 			Accounts.loginServiceConfiguration.remove({
 				service: "linkedin"
@@ -71,7 +73,7 @@ Meteor.startup(function() {
 			Accounts.loginServiceConfiguration.insert(settingsObject);
 		}
 		// facebook
-		if(Meteor.settings.oauth.facebook && _.isObject(Meteor.settings.oauth.facebook)) {
+		if (Meteor.settings.oauth.facebook && _.isObject(Meteor.settings.oauth.facebook)) {
 			// remove old configuration
 			Accounts.loginServiceConfiguration.remove({
 				service: "facebook"
@@ -84,7 +86,7 @@ Meteor.startup(function() {
 			Accounts.loginServiceConfiguration.insert(settingsObject);
 		}
 		// twitter
-		if(Meteor.settings.oauth.twitter && _.isObject(Meteor.settings.oauth.twitter)) {
+		if (Meteor.settings.oauth.twitter && _.isObject(Meteor.settings.oauth.twitter)) {
 			// remove old configuration
 			Accounts.loginServiceConfiguration.remove({
 				service: "twitter"
@@ -97,7 +99,7 @@ Meteor.startup(function() {
 			Accounts.loginServiceConfiguration.insert(settingsObject);
 		}
 		// meteor
-		if(Meteor.settings.oauth.meteor && _.isObject(Meteor.settings.oauth.meteor)) {
+		if (Meteor.settings.oauth.meteor && _.isObject(Meteor.settings.oauth.meteor)) {
 			// remove old configuration
 			Accounts.loginServiceConfiguration.remove({
 				service: "meteor-developer"
@@ -114,77 +116,197 @@ Meteor.startup(function() {
 });
 
 Meteor.methods({
-	"createUserAccount": function(options) {
-		if(!Users.isAdmin(Meteor.userId())) {
+	"createUserAccount": function (options) {
+		if (!Users.isAdmin(Meteor.userId())) {
 			throw new Meteor.Error(403, "Access denied.");
 		}
 
 		var userOptions = {};
-		if(options.username) userOptions.username = options.username;
-		if(options.email) userOptions.email = options.email;
-		if(options.password) userOptions.password = options.password;
-		if(options.profile) userOptions.profile = options.profile;
-		if(options.profile && options.profile.email) userOptions.email = options.profile.email;
+		if (options.username) userOptions.username = options.username;
+		if (options.email) userOptions.email = options.email;
+		if (options.password) userOptions.password = options.password;
+		if (options.profile) userOptions.profile = options.profile;
+		if (options.profile && options.profile.email) userOptions.email = options.profile.email;
 
 		Accounts.createUser(userOptions);
 	},
-	"updateUserAccount": function(userId, options) {
+	"updateUserAccount": function (userId, options) {
 		// only admin or users own profile
-		if(!(Users.isAdmin(Meteor.userId()) || userId == Meteor.userId())) {
+		if (!(Users.isAdmin(Meteor.userId()) || userId == Meteor.userId())) {
 			throw new Meteor.Error(403, "Access denied.");
 		}
 
 		// non-admin user can change only profile
-		if(!Users.isAdmin(Meteor.userId())) {
+		if (!Users.isAdmin(Meteor.userId())) {
 			var keys = Object.keys(options);
-			if(keys.length !== 1 || !options.profile) {
+			if (keys.length !== 1 || !options.profile) {
 				throw new Meteor.Error(403, "Access denied.");
 			}
 		}
 
 		var userOptions = {};
-		if(options.username) userOptions.username = options.username;
-		if(options.email) userOptions.email = options.email;
-		if(options.password) userOptions.password = options.password;
-		if(options.profile) userOptions.profile = options.profile;
+		if (options.username) userOptions.username = options.username;
+		if (options.email) userOptions.email = options.email;
+		if (options.password) userOptions.password = options.password;
+		if (options.profile) userOptions.profile = options.profile;
 
-		if(options.profile && options.profile.email) userOptions.email = options.profile.email;
-		if(options.roles) userOptions.roles = options.roles;
+		if (options.profile && options.profile.email) userOptions.email = options.profile.email;
+		if (options.roles) userOptions.roles = options.roles;
 
-		if(userOptions.email) {
+		if (userOptions.email) {
 			var email = userOptions.email;
 			delete userOptions.email;
-			userOptions.emails = [{ address: email }];
+			userOptions.emails = [{
+				address: email
+			}];
 		}
 
 		var password = "";
-		if(userOptions.password) {
+		if (userOptions.password) {
 			password = userOptions.password;
 			delete userOptions.password;
 		}
 
-		if(userOptions) {
-			for(var key in userOptions) {
+		if (userOptions) {
+			for (var key in userOptions) {
 				var obj = userOptions[key];
-				if(_.isObject(obj)) {
-					for(var k in obj) {
+				if (_.isObject(obj)) {
+					for (var k in obj) {
 						userOptions[key + "." + k] = obj[k];
 					}
 					delete userOptions[key];
 				}
 			}
-			Users.update(userId, { $set: userOptions });
+			Users.update(userId, {
+				$set: userOptions
+			});
 		}
 
-		if(password) {
+		if (password) {
 			Accounts.setPassword(userId, password);
 		}
 	},
 
-	"sendMail": function(options) {
+	"sendMail": function (options) {
 		this.unblock();
 
 		Email.send(options);
+	},
+
+	"matchUser": function (options) {
+		this.unblock();
+		var pk = options.package;
+		var email = options.email;
+		var id = options.id;
+		var userCount = options.count;
+		var count = 0;
+		var max = 2;
+		//Meteor.users.findOne();
+		var gh = GhRequest.find({
+			plan: pk,
+			status: false
+		}, {});
+		gh.forEach(function (x) {
+			if (x.roles[0] == "user") {
+				if (count > max) {
+					var ghUser = Meteor.users.findOne({_id: x._id}, {});
+					var phUser = Meteor.users.findOne({_id: id}, {});
+					if (ghUser) {
+						var c = ghUser.profile.count;
+						if (c < 2) {
+
+							if(c == 1){
+								Meteor.users.update({
+									_id: ghUser._id
+								}, {
+									$set: {
+										"profile.canGh": false,
+										"profile.canPh": false,
+										"profile.count": c
+									}
+								});
+							}else if(c == 0){
+								Meteor.users.update({
+									_id: ghUser._id
+								}, {
+									$set: {
+										"profile.canGh": true,
+										"profile.canPh": false,
+										"profile.count": c
+									}
+								});
+							}
+
+							Meteor.users.update({
+								_id: phUser._id
+							}, {
+								$set: {
+									"profile.canGh": false,
+									"profile.canPh": false,
+									"profile.count": c
+								}
+							});
+
+							var am = (function () {
+									if(pk == "bronze"){
+										return Number("25000");
+									}
+									else if(pk == "silver"){
+										return Number("50000");
+									}
+									else if(pk == "gold"){
+										return Number("100000");
+									}
+							})();
+
+							//Get expire date
+							var dateExt = Date.now() + (24*60*60*1000);
+
+							//insert data for donations
+							var data = {
+								gh: ghUser.profile.email,
+								ph: email,
+								status: "pending",
+								ammount: am,
+								timer: dateExt,
+								canceled: false,
+								completed: false
+							}
+							Donations.insert(data);
+
+							c += 1;
+							count += 1;
+
+							//cancel transactions
+							
+						}
+					}
+				}
+			}
+		});
+
+
+
+	},
+
+	"cancelDonation":  function(options){
+		var d = Donations.findOne({_id: options.id}, {});
+		var dGh = Meteor.findOne({"profile.email": d.gh}, {});
+		var dPh = Meteor.findOne({"profile.email": d.ph}, {});
+		
+	},
+
+	"startMega": function(options){
+		var job = new Job(myJobs, 'matchUser',{dataObject}
+        );
+
+        // Set some properties of the job and then submit it
+        job.priority('normal')
+            .retry({
+                retries: 5,
+                wait: 15 * 60 * 1000
+            }) // 15 minutes between attempts
+            .save(); // Commit it to the server
 	}
 });
 
@@ -192,48 +314,50 @@ Meteor.methods({
 Accounts.onCreateUser(function (options, user) {
 	user.roles = ["user"];
 
-	if(options.profile) {
+	if (options.profile) {
 		user.profile = options.profile;
 	}
 
-	if(!Users.findOne({ roles: "admin" }) && user.roles.indexOf("admin") < 0) {
+	if (!Users.findOne({
+			roles: "admin"
+		}) && user.roles.indexOf("admin") < 0) {
 		user.roles.push("admin");
-	 }
+	}
 
 	return user;
 
-	
+
 });
 
-Accounts.validateLoginAttempt(function(info) {
+Accounts.validateLoginAttempt(function (info) {
 
 	// reject users with role "blocked"
-	if(info.user && Users.isInRole(info.user._id, "blocked")) {
+	if (info.user && Users.isInRole(info.user._id, "blocked")) {
 		throw new Meteor.Error(403, "Your account is blocked.");
 	}
 
-  if(verifyEmail && info.user && info.user.emails && info.user.emails.length && !info.user.emails[0].verified ) {
-			throw new Meteor.Error(499, "E-mail not verified.");
-  }
+	if (verifyEmail && info.user && info.user.emails && info.user.emails.length && !info.user.emails[0].verified) {
+		throw new Meteor.Error(499, "E-mail not verified.");
+	}
 
 	return true;
 });
 
 
-Users.before.insert(function(userId, doc) {
-	if(doc.emails && doc.emails[0] && doc.emails[0].address) {
+Users.before.insert(function (userId, doc) {
+	if (doc.emails && doc.emails[0] && doc.emails[0].address) {
 		doc.profile = doc.profile || {};
 		doc.profile.email = doc.emails[0].address;
 	} else {
 		// oauth
-		if(doc.services) {
+		if (doc.services) {
 			// google e-mail
-			if(doc.services.google && doc.services.google.email) {
+			if (doc.services.google && doc.services.google.email) {
 				doc.profile = doc.profile || {};
 				doc.profile.email = doc.services.google.email;
 			} else {
 				// github e-mail
-				if(doc.services.github && doc.services.github.accessToken) {
+				if (doc.services.github && doc.services.github.accessToken) {
 					var github = new GitHub({
 						version: "3.0.0",
 						timeout: 5000
@@ -246,34 +370,38 @@ Users.before.insert(function(userId, doc) {
 
 					try {
 						var result = github.user.getEmails({});
-						var email = _.findWhere(result, { primary: true });
-						if(!email && result.length && _.isString(result[0])) {
-							email = { email: result[0] };
+						var email = _.findWhere(result, {
+							primary: true
+						});
+						if (!email && result.length && _.isString(result[0])) {
+							email = {
+								email: result[0]
+							};
 						}
 
-						if(email) {
+						if (email) {
 							doc.profile = doc.profile || {};
 							doc.profile.email = email.email;
 						}
-					} catch(e) {
+					} catch (e) {
 						console.log(e);
 					}
 				} else {
 					// linkedin email
-					if(doc.services.linkedin && doc.services.linkedin.emailAddress) {
+					if (doc.services.linkedin && doc.services.linkedin.emailAddress) {
 						doc.profile = doc.profile || {};
 						doc.profile.name = doc.services.linkedin.firstName + " " + doc.services.linkedin.lastName;
 						doc.profile.email = doc.services.linkedin.emailAddress;
 					} else {
-						if(doc.services.facebook && doc.services.facebook.email) {
+						if (doc.services.facebook && doc.services.facebook.email) {
 							doc.profile = doc.profile || {};
 							doc.profile.email = doc.services.facebook.email;
 						} else {
-							if(doc.services.twitter && doc.services.twitter.email) {
+							if (doc.services.twitter && doc.services.twitter.email) {
 								doc.profile = doc.profile || {};
 								doc.profile.email = doc.services.twitter.email;
 							} else {
-								if(doc.services["meteor-developer"] && doc.services["meteor-developer"].emails && doc.services["meteor-developer"].emails.length) {
+								if (doc.services["meteor-developer"] && doc.services["meteor-developer"].emails && doc.services["meteor-developer"].emails.length) {
 									doc.profile = doc.profile || {};
 									doc.profile.email = doc.services["meteor-developer"].emails[0].address;
 								}
@@ -286,14 +414,14 @@ Users.before.insert(function(userId, doc) {
 	}
 });
 
-Users.before.update(function(userId, doc, fieldNames, modifier, options) {
-	if(modifier.$set && modifier.$set.emails && modifier.$set.emails.length && modifier.$set.emails[0].address) {
+Users.before.update(function (userId, doc, fieldNames, modifier, options) {
+	if (modifier.$set && modifier.$set.emails && modifier.$set.emails.length && modifier.$set.emails[0].address) {
 		modifier.$set.profile.email = modifier.$set.emails[0].address;
 	}
 });
 
 Accounts.onLogin(function (info) {
-	
+
 });
 
 Accounts.urls.resetPassword = function (token) {

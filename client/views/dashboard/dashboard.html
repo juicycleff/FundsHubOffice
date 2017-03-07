@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Revenue by Month <i class="mdi-navigation-close right"></i></span>
+                                <span class="card-title grey-text text-darken-4">Hello <i class="mdi-navigation-close right"></i></span>
 
                             </div>
 
@@ -114,7 +114,7 @@
                         </div>
 
                         <div class="card-panel">
-                            <button data-target="modal1" class="modal-trigger waves-effect waves-light  btn">Provide Help</button>
+                            <a href="{{pathFor 'dashboard.provide_help'}}" class="modal-trigger waves-effect waves-light  btn">Provide Help</a>
                         </div>
 
 
@@ -130,48 +130,7 @@
                             <a href="{{pathFor 'referrals'}}" class="collection-item">View Referrals</a>
                         </ul>
                         </div>
-
-                        <!-- Modals-->
-
-                        <!-- Modal Structure -->
-                        <div id="modal1" class="modal modal-fixed-footer">
-                            <div class="modal-content">
-                                <h4>Provide Help</h4>
-                                <p>Please choose a provide help package, you will be assigned to a participant and given just
-                                    24hrs to provide help.</p>
-                                    <br />
-                                    <br />
-                                <div>
-                                    <div class="input-field inline">
-                                        <select id="package">
-                                    <option value="">Select Pacakge</option>
-                                    <option value="">Bronze - N25,000</option>
-                                    <option value="">Silver - N50,000</option>
-                                    <option value="">Gold - N100,000</option>
-                                </select>
-                                        <label for="package">Select Package</label>
-                                    </div>
-                                    <br />
-                                    <div class="input-field ">
-                                        <p>
-                                            <input type="checkbox" id="agreeSelect" />
-                                            <label for="test5">I agree to participate in monibox being of clear and sound mind. I am sure I want to provide help and I agree to provide help to the participant that will be assigned to me.</label>
-                                            </p>
-                                    </div>
-
-                                    <br />
-                                    <p>"Do not provide help on weekends if you do not use internet banking or mobile transfer, you will be given 24hrs to make payment. if you cannot use mobile transfer or internet banking, please only provide help on week days"</p>
-
-                                    
-                                </div>
-                                <br />
-                                <br />
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" id="closeModal" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
-                            </div>
-                        </div>
+         
                     </div>
                 </div>
             </div>

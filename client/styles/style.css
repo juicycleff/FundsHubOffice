@@ -17,6 +17,10 @@
 body {
   background-color: #fcfcfc;
 }
+.filler{
+  opacity: 0.0;
+  width: 100%;
+}
 #main,
 footer {
   padding-left: 240px;
